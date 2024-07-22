@@ -1,0 +1,205 @@
+<link rel="stylesheet" href="/css/index.css" />
+
+<% layout("/layouts/boilerplate") %>
+
+<style>
+  #filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .filter {
+    font-size: 2.35rem;
+    text-align: center;
+    margin-right: 2rem;
+    margin-top: 0.56rem;
+    opacity: 0.7;
+  }
+
+  .filter p {
+    font-size: 0.8rem;
+  }
+
+  .filter:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .tax-info {
+    color: #024950;
+    display: none;
+  }
+
+  .tax-toggle {
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 1rem;
+    height: 3.5rem;
+    padding-left: 3rem;
+    padding-right: 2rem;
+    display: flex;
+    align-items: center;
+    background-color: #024950;
+    color: white;
+  }
+
+  .filter i {
+    color: #024950;
+  }
+</style>
+
+<body>
+  <br />
+  <!-- <h2>All Listings</h2> -->
+
+  <div id="filters">
+    <div class="filter">
+      <i class="fas fa-fire-flame-curved"> </i>
+      <p>Trending</p>
+      <!-- <i class="  "></i> -->
+    </div>
+
+    <div class="filter">
+      <i class="fas fa-bed"> </i>
+      <p>Bed</p>
+      <!-- <i class="  "></i> -->
+    </div>
+
+    <div class="filter">
+      <i class="fas fa-mountain-city"> </i>
+      <p>Iconic Cities</p>
+      <!-- <i class="  "></i> -->
+    </div>
+
+    <div class="filter">
+      <i class="fas fa-mountain-sun"> </i>
+      <p>Mountains</p>
+      <!-- <i class="  "></i> -->
+    </div>
+
+    <div class="filter">
+      <i class="fab fa-fort-awesome"> </i>
+      <p>Castles</p>
+      <!-- <i class="  "></i> -->
+    </div>
+
+    <!-- <div class="filter">
+        <i class=" fas fa-person-swimming"> </i>
+        <p>Amazing Pools</p>
+      </div> -->
+
+    <div class="filter">
+      <i class="fas fa-campground"> </i>
+      <p>Camping</p>
+      <!-- <i class="  "></i> -->
+    </div>
+
+    <div class="filter">
+      <i class="fas fa-tractor"> </i>
+      <p>Farms</p>
+      <!-- <i class="  "></i> -->
+    </div>
+
+    <div class="filter">
+      <i class="fas fa-umbrella-beach"> </i>
+      <p>Beach</p>
+      <!-- <i class="  "></i> -->
+    </div>
+
+    <div class="filter">
+      <i class="fas fa-tree"> </i>
+      <p>Forest</p>
+    </div>
+
+    <!-- 
+      <div class="filter">
+        <i class="fas fa-torii-gate"> </i>
+        <p>Temples</p>
+      </div> -->
+
+    <!-- <div class="filter">
+        <i class="fas fa-igloo"> </i>
+        <p>Doms</p>
+
+      </div> -->
+
+    <!-- <div class="filter">
+        <i class="fas fa-ship"> </i>
+        <p>Boats</p>
+
+      </div> -->
+
+    <div class="tax-toggle">
+      <div class="form-check-reverse form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="flexSwitchCheckDefault"
+        />
+        <label class="form-check-label" for="flexSwitchCheckDefault"
+          >Display total after taxes</label
+        >
+      </div>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-1">
+    <% for (let listing of allListings ){ %>
+
+    <a href="/listings/<%=listing._id %>" class="listing-link">
+      <div class="card col listing-card">
+        <img
+          src="<%=listing.image.url %>"
+          class="card-img-top"
+          alt="listing_image"
+          style="height: 20rem"
+        />
+
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <p class="card-text">
+            <b> <%=listing.title %> </b> <br />
+            <%=listing.price.toLocaleString("en-IN") %>/Night
+            <i class="tax-info"> &nbsp; &nbsp; <b>+18% GST</b> </i>
+          </p>
+        </div>
+      </div>
+    </a>
+
+    <% } %>
+  </div>
+
+  <!-- <form method="GET" action="/listings/new">
+    <button>Create New Listing</button>
+  </form> -->
+
+  <!-- <br />
+
+  <% for (let listing of allListings ){ %>
+
+  <li><a href="/listings/<%=listing._id %>"> <%=listing.title %></a></li>
+  <li><a href="/listings/<%=listing._id %>"> <%=listing.title %></a></li>
+
+  <% } %>
+</body> -->
+</body>
+
+<script>
+  let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+
+  taxSwitch.addEventListener("click", () => {
+    let taxInfo = document.getElementsByClassName("tax-info");
+    // console.log(taxInfo);
+
+    for (info of taxInfo) {
+      if (info.style.display != "inline") {
+        info.style.display = "inline";
+      } else {
+        info.style.display = "none";
+      }
+    }
+  });
+</script>

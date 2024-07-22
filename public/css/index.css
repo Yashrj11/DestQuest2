@@ -1,0 +1,323 @@
+/* Global Styles */
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  font-optical-sizing: auto;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
+}
+
+/* Navbar */
+.navbar {
+  height: 5rem;
+  background-color: white;
+}
+
+.fa-compass {
+  color: #024950;
+  font-size: 3rem;
+}
+
+.nav-link {
+  color: #222222 !important;
+}
+
+.chng {
+  color: #024950;
+}
+
+.btn-search {
+  background-color: #024950;
+  color: white;
+  border-radius: 5px;
+  padding: 0 1rem;
+}
+
+.btn-search:hover {
+  background-color: #024950;
+  color: white;
+}
+
+.btn-search i {
+  display: inline;
+  margin-left: 0.5rem;
+}
+
+.search-inp {
+  padding: 0.5rem 8rem;
+}
+
+.form-control:focus {
+  border-color: #024950;
+  box-shadow: inset 0 1px 1px #103f42, 0 0 8px #044d54;
+}
+
+/* Footer */
+.footer {
+  background-color: #024950;
+}
+
+.main {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.f-info-links {
+  text-decoration: none;
+  color: #222222;
+}
+
+.f-info-links:hover {
+  text-decoration: underline;
+}
+
+.f-info-socials,
+.f-info-brand,
+.f-info-links {
+  width: 100%;
+  font-size: 1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-info-socials i {
+  margin-right: 1.4rem;
+  color: blue;
+}
+
+.f-info {
+  text-align: center;
+  height: 8rem;
+  background-color: #ebebeb;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-evenly;
+}
+
+/* Cards */
+.listing-card {
+  border: none !important;
+  margin-bottom: 2rem;
+}
+
+.card-img-top {
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+.card-body {
+  padding: 0 !important;
+}
+
+.card-text p {
+  font-weight: 400 !important;
+}
+
+.listing-link {
+  text-decoration: none;
+}
+
+.card-img-overlay {
+  opacity: 0;
+}
+
+.card-img-overlay:hover {
+  opacity: 0.2;
+  background-color: white;
+}
+
+.add-btn {
+  background-color: rgb(217, 63, 63);
+  height: 3rem;
+  width: 6rem;
+  border: none;
+}
+
+/* Show Page */
+.show-img {
+  height: 50vh;
+}
+
+.btns {
+  display: flex;
+}
+
+.show-card {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+}
+
+/* Filters */
+#filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter {
+  text-align: center;
+  margin-right: 2rem;
+  margin-top: 0.56rem;
+  opacity: 0.7;
+}
+
+.filter p {
+  font-size: 0.8rem;
+}
+
+.filter:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.tax-info {
+  color: #024950;
+  display: none;
+}
+
+.tax-toggle {
+  border: 1px solid black;
+  border-radius: 1rem;
+  height: 3.5rem;
+  padding: 1rem;
+  margin-left: 5rem;
+  display: flex;
+  align-items: center;
+  background-color: #024950;
+  color: white;
+}
+
+.filter i {
+  color: #024950;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .search-inp {
+    padding: 0.5rem 5rem;
+  }
+
+  .tax-toggle {
+    margin-left: 3rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .search-inp {
+    padding: 0.5rem 3rem;
+  }
+
+  .tax-toggle {
+    margin-left: 2rem;
+  }
+
+  .navbar {
+    height: 4rem;
+  }
+
+  .fa-compass {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-inp {
+    padding: 0.5rem 1.5rem;
+  }
+
+  #filters {
+    flex-direction: column;
+  }
+
+  .filter {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .tax-toggle {
+    margin-left: 0;
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .listing-card {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .search-inp {
+    padding: 0.5rem;
+  }
+
+  .filter p {
+    font-size: 0.7rem;
+  }
+
+  .tax-toggle {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem;
+  }
+
+  .footer .main h2 {
+    font-size: 1.5rem;
+  }
+
+  .footer .main p {
+    font-size: 0.9rem;
+  }
+
+  .f-info-socials,
+  .f-info-brand,
+  .f-info-links {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    height: 3.5rem;
+  }
+
+  .fa-compass {
+    font-size: 2rem;
+  }
+
+  .filter i {
+    font-size: 1rem;
+  }
+
+  .filter p {
+    font-size: 0.6rem;
+  }
+
+  .tax-toggle {
+    padding: 0.3rem;
+  }
+
+  .footer .main h2 {
+    font-size: 1.2rem;
+  }
+
+  .footer .main p {
+    font-size: 0.8rem;
+  }
+}

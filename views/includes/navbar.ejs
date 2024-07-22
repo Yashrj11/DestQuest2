@@ -1,0 +1,104 @@
+
+
+<!--  navbar  -->
+<style>
+  .chng {
+
+    color: #024950;
+  }
+
+
+  .btn-search {
+
+    background-color: #024950;
+    color: white;
+    border-radius: 5px;
+    padding: 0 1rem 0 1rem;
+
+  }
+
+  .btn-search:hover {
+
+    background-color: #024950;
+    color: white;
+  }
+
+
+  .btn-search i {
+    display: inline;
+    margin-left: 0.5rem;
+  }
+
+
+  .search-inp {
+
+    padding: 0.5rem 8rem 0.5rem 8rem;
+  }
+
+
+  .form-control:focus {
+    border-color: #024950;
+    box-shadow: inset 0 1px 1px #103f42, 0 0 8px #044d54;
+  }
+</style>
+
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a href="listings  "> <i class="fas fa-compass"></i> </a>
+    <a class="navbar-brand" href="/listings"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <!-- <a class="nav-link" href="/listings">Home</a> -->
+        <a class="nav-link" href="/listings"> <b>Explore</b> </a>
+      </div>
+
+
+
+
+      <div class="navbar-nav ms-auto ">
+
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 search-inp" placeholder="Search destinations" aria-label="Search">
+          <button class="btn btn-search " type="submit">
+            <i class="fas fa-magnifying-glass"></i>Search</button>
+        </form>
+
+      </div>
+
+
+
+
+
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new"> <b class="chng"> Add Places</b></a>
+
+        <% if(!currUser) { %>
+
+          <a class="nav-link" href="/signup"> <b>Signup</b></a>
+          <a class="nav-link" href="/login"> <b> Login</b></a>
+
+          <% } %>
+
+
+            <!-- req.user ko directly ejs me access nhi kr skte , pr hum res.locals ko access kr skte h -->
+            <!-- is liye ab hum req.user ko res.locals me store karayange -->
+            <% if(currUser){ %>
+
+              <a class="nav-link" href="/logout">Logout</a>
+
+              <% } %>
+
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+
+<!-- navbar  -->
+
+

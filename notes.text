@@ -1,0 +1,113 @@
+///let {title,description,image,price,country,location}=req.body; 1st way
+  //2nd way ........in sab variables ko object ki field ya key bana de,,,new.ejs ke form me (title)=(listing[title])
+
+
+ejs-mate is used to do styling in express ..... we use boilerplate layo.......
+
+
+required is used in html to fill the section compulsoryly
+
+broswer ki default settings ko hattane ke liye "novalidate " likhna pdta h
+
+success and failure message jo red and green me aate h unko show karne ke liye "valid-feedback" and "invalid-feedback" classes use hoti h
+
+
+const router = express.Router({ mergeParams: true });//////aisa model jiske parent route ke andar kuch aise parameters jo
+calbacks ke andar use hote toh uske liye hamesha route define krte time "{mergeParams:true}"karna chahiye
+ mergeparams 
+
+
+  /////////jaha route define kiya h,usse pehle use karna pdega///////pehle flash aayga uske baad routes aaaynge
+
+
+  ///passport ko use krne se pehle usse initialize krna pdega and passsport.session ko implement krna pdega
+
+
+  //// user se related jitni bhi informations h,usko store karana
+  ///user se related jitni bhi stored  information h, unko unstore krna
+
+
+
+
+
+
+router.post(
+  "/signup",
+  wrapAsync(async (req, res) => {
+    try {
+      let { username, email, password } = req.body;
+      const newUser = new User({ email, username });
+      const registeredUser = await User.register(newUser, password);
+      req.flash("success", "Welcome to Wanderlust!");
+      res.redirect("/listings");
+    } catch (err) {
+      req.flash("error", err.message);
+      res.redirect("/signup");
+    }
+  })
+);
+
+
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    failureRedirect: "/login",
+    failureFlash: "Invalid username or password.",
+  }),
+  wrapAsync (async (req, res) => {
+
+    try{
+
+req.flash("success", "Welcome back to Wanderlust!");
+    res.redirect("/listings");
+
+    }catch(err){
+
+req.flash("error", err.message);
+      res.redirect("/signup");
+
+    }
+      }
+));
+
+module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- req.user ko directly ejs me access nhi kr skte , pr hum res.locals ko access kr skte h -->
+<!-- is liye ab hum req.user ko res.locals me store karayange -->
+
+
+
+
+temporing matlb chedhkhani krna kisi chiz ke saath ////////////
+
+
+express session ,, server side pr temporary  storage banwata h, uska ek database banata hai aur usko unique id deta h
+
+
+
+////////////////////////////
+
+parent aur child route ko jab merge karna chahenge, parent aur child route ke parameters ko merge krenge toh ..mergeparams use krte h.....
+express.Router() use krte time , jab parent route me koi parameter hota and then fir child route hota,
+tab express.Router({mergeParams:true}) ko use krte, taaki woh sirf parent route tak hi naa reh jaaye..... 
+
+////////////////////////////
+req.user directly ejs file me show nhi hoga toh usko hume Pehle ,usko res.locals me store kranaa pdega....../
+
+///////////  jis current path pr hum h, uski information req.originalUrl me rehti h, pr usko hum req.session.redirectUrl me store krwala lenge ,,,kyunki session related saari informations wahin pr store hoti h,
+ login krwate waqt passport(),redirect url ko delete kr dega ,isliye isse hume res.locals me store krwa lenge ,kyunki woh sab jagah se accessible honge aur passport ke paas permission nhi h, res.locals ko delete krne ki
+
+ ///////////////////////
+ jab humko kisi html file ke andar files snd krna h toh,uska type chng krna pdta h............. 
+enctype="multipart/form-data
